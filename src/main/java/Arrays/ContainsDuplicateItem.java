@@ -1,3 +1,5 @@
+package Arrays;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,10 +27,11 @@ public class ContainsDuplicateItem {
         int[] nums1 = {1, 2, 3, 1};
         int[] nums2 = {1, 2, 3, 4};
         int[] nums3 = {1, 1, 1, 3, 3, 4, 3, 2, 4, 2};
+        int[] nums4 = new int[100];
 
-        System.out.println(containsDuplicate4(nums1));
-        System.out.println(containsDuplicate4(nums2));
-        System.out.println(containsDuplicate4(nums3));
+        System.out.println(containsDuplicate5(nums1));
+        System.out.println(containsDuplicate5(nums2));
+        System.out.println(containsDuplicate5(nums3));
     }
 
     //暴力破解方法
@@ -88,7 +91,7 @@ public class ContainsDuplicateItem {
         return false;
     }
 
-    //大佬的高阶方法
+    //大佬的高阶方法，但只适合长度小于1024的数组
     public static boolean containsDuplicate5(int[] nums) {
         if(nums.length<1||nums[0]==237384||nums[0]==-24500){
             return false;
