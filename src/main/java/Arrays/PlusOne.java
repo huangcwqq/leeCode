@@ -22,17 +22,11 @@ package Arrays;
 public class PlusOne {
     public static void main(String[] args) {
         int[] digits = {9,9};
-//        int[] nums = plusOne(digits);
-//        for(int i = 0;i < nums.length;i ++){
-//            System.out.print(nums[i]);
-//            System.out.print(",");
-//        }
-        digits = new int[digits.length + 1];
-        for(int i = 0;i < digits.length;i ++){
-            System.out.print(digits[i]);
+        int[] nums = plusOne(digits);
+        for(int i = 0;i < nums.length;i ++){
+            System.out.print(nums[i]);
             System.out.print(",");
         }
-
     }
 
     public static int[] plusOne(int[] digits) {
