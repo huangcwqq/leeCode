@@ -20,26 +20,12 @@ import java.util.Arrays;
 
 public class singleNumber {
     public static void main(String[] args) {
-
-    }
-
-    //暴力方法
-    public static int singleNumber(int[] nums) {
-        if(nums.length < 2){
-            return nums[0];
-        }
-        for (int i = 0;i<nums.length;i++){
-            for(int j = i+1;j<nums.length;j++){
-                if(nums[i] == nums[j]){
-
-                }
-            }
-        }
-        return 0;
+        int[] nums = {4,1,2,1,2};
+        System.out.println(singleNumber(nums));
     }
 
     //先对数组进行排序
-    public static int singleNumber2(int[] nums) {
+    public static int singleNumber(int[] nums) {
         int n = nums.length;
         if(n < 2){
             return nums[0];
@@ -60,7 +46,7 @@ public class singleNumber {
     }
 
     //大佬高阶玩法
-    public int singleNumber3(int[] nums) {
+    public int singleNumber2(int[] nums) {
         int a = 0;
         for (int x : nums) {
             a ^= x;
