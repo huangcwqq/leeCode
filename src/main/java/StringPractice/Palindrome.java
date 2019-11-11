@@ -24,24 +24,24 @@ public class Palindrome {
     }
 
     public static boolean isPalindrome(String s) {
-        if("".equals(s)){
+        if ("".equals(s)) {
             return true;
         }
-        int start = 0,end = s.length() - 1;
-        while (start < end){
-            if(s.charAt(start)<48 || (s.charAt(start) > 57 && s.charAt(start) < 65) || (s.charAt(start) > 90 && s.charAt(start) < 97) || s.charAt(start) > 122){
+        int start = 0, end = s.length() - 1;
+        while (start < end) {
+            if (s.charAt(start) < 48 || (s.charAt(start) > 57 && s.charAt(start) < 65) || (s.charAt(start) > 90 && s.charAt(start) < 97) || s.charAt(start) > 122) {
                 start++;
                 continue;
             }
-            if(s.charAt(end)<48 || (s.charAt(end) > 57 && s.charAt(end) < 65) || (s.charAt(end) > 90 && s.charAt(end) < 97) || s.charAt(end) > 122){
+            if (s.charAt(end) < 48 || (s.charAt(end) > 57 && s.charAt(end) < 65) || (s.charAt(end) > 90 && s.charAt(end) < 97) || s.charAt(end) > 122) {
                 end--;
                 continue;
             }
-            if(String.valueOf(s.charAt(start)).equalsIgnoreCase(String.valueOf(s.charAt(end)))){
+            if (String.valueOf(s.charAt(start)).equalsIgnoreCase(String.valueOf(s.charAt(end)))) {
                 start++;
                 end--;
                 continue;
-            }else {
+            } else {
                 return false;
             }
         }
@@ -50,31 +50,31 @@ public class Palindrome {
 
     //在上面的基础上稍微优化
     public static boolean isPalindrome2(String s) {
-        if("".equals(s)){
+        if ("".equals(s)) {
             return true;
         }
         char[] c = s.toCharArray();
-        int start = 0,end = s.length() - 1;
-        while (start < end){
-            if(!Character.isLetterOrDigit(c[start])){
+        int start = 0, end = s.length() - 1;
+        while (start < end) {
+            if (!Character.isLetterOrDigit(c[start])) {
                 start++;
                 continue;
             }
-            if(c[start] >= 65 && c[start] <= 90){
-                c[start] = (char)(c[start] - 'A' + 'a');
+            if (c[start] >= 65 && c[start] <= 90) {
+                c[start] = (char) (c[start] - 'A' + 'a');
             }
-            if(!Character.isLetterOrDigit(c[end])){
+            if (!Character.isLetterOrDigit(c[end])) {
                 end--;
                 continue;
             }
-            if(c[end] >= 65 && c[end] <= 90){
-                c[end] = (char)(c[end] - 'A' + 'a');
+            if (c[end] >= 65 && c[end] <= 90) {
+                c[end] = (char) (c[end] - 'A' + 'a');
             }
-            if(c[start] == c[end]){
+            if (c[start] == c[end]) {
                 start++;
                 end--;
                 continue;
-            }else {
+            } else {
                 return false;
             }
         }

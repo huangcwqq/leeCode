@@ -28,19 +28,19 @@ public class FirstUniqChar {
     }
 
     //引入HashMap数组来进行辅助
-    public static int firstUniqChar(String s){
+    public static int firstUniqChar(String s) {
         int n = s.length();
-        Map<Character,Integer> tempMap = new HashMap<Character, Integer>();
-        for(int i=0;i<n;i++){
+        Map<Character, Integer> tempMap = new HashMap<Character, Integer>();
+        for (int i = 0; i < n; i++) {
             Integer value = tempMap.get(s.charAt(i));
-            if(value != null){
-                tempMap.put(s.charAt(i),value + 1);
-            }else {
-                tempMap.put(s.charAt(i),1);
+            if (value != null) {
+                tempMap.put(s.charAt(i), value + 1);
+            } else {
+                tempMap.put(s.charAt(i), 1);
             }
         }
-        for(int i=0;i<n;i++){
-            if(tempMap.get(s.charAt(i)) == 1){
+        for (int i = 0; i < n; i++) {
+            if (tempMap.get(s.charAt(i)) == 1) {
                 return i;
             }
         }
@@ -48,7 +48,7 @@ public class FirstUniqChar {
     }
 
     //引入int数组
-    public static int firstUniqChar2(String s){
+    public static int firstUniqChar2(String s) {
         int freq[] = new int[26];
 
         for (int i = 0; i < s.length(); i++)
@@ -61,31 +61,31 @@ public class FirstUniqChar {
     }
 
     //引入treeMap数组(大佬方法)
-    public static int firstUniqChar3(String s){
-        if(s==null||s.equals(""))
+    public static int firstUniqChar3(String s) {
+        if (s == null || s.equals(""))
             return -1;
-        if(s.length()==1)
+        if (s.length() == 1)
             return 0;
-        TreeMap<Integer,Character> treeMap = new TreeMap();
-        for (char i = 'a'; i <='z'; i++) {
+        TreeMap<Integer, Character> treeMap = new TreeMap();
+        for (char i = 'a'; i <= 'z'; i++) {
             int left = s.indexOf(i);
             if (left == -1) continue;
             int right = s.lastIndexOf(i);
             if (left == right)
-                treeMap.put(left,i);
+                treeMap.put(left, i);
         }
         return treeMap.isEmpty() ? -1 : treeMap.firstKey();
     }
 
     //前后比较法
-    public static int firstUniqChar4(String s){
-        if(s==null||s.equals(""))
+    public static int firstUniqChar4(String s) {
+        if (s == null || s.equals(""))
             return -1;
-        if(s.length() < 2)
+        if (s.length() < 2)
             return 0;
-        for (int i = 0;i < s.length();i++) {
+        for (int i = 0; i < s.length(); i++) {
             char item = s.charAt(i);
-            if(s.indexOf(item) == s.lastIndexOf(item)){
+            if (s.indexOf(item) == s.lastIndexOf(item)) {
                 return i;
             }
         }

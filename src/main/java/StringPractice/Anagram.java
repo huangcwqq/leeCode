@@ -24,25 +24,25 @@ public class Anagram {
         String t = "nagaram";
         String s1 = "rat";
         String t1 = "car";
-        System.out.println(isAnagram2(s,t));
+        System.out.println(isAnagram2(s, t));
     }
 
     public static boolean isAnagram(String s, String t) {
-        if(s.length() != t.length()){
+        if (s.length() != t.length()) {
             return false;
         }
         char[] cs = s.toCharArray();
         char[] ts = t.toCharArray();
         int[] is = new int[26];
         int[] it = new int[26];
-        for(int i=0;i<cs.length;i++){
+        for (int i = 0; i < cs.length; i++) {
             is[cs[i] - 'a']++;
         }
-        for(int i=0;i<ts.length;i++){
+        for (int i = 0; i < ts.length; i++) {
             it[ts[i] - 'a']++;
         }
-        for(int i = 0;i<is.length;i++){
-            if(is[i] != it[i]){
+        for (int i = 0; i < is.length; i++) {
+            if (is[i] != it[i]) {
                 return false;
             }
         }
@@ -51,17 +51,17 @@ public class Anagram {
 
     //优化
     public static boolean isAnagram2(String s, String t) {
-        if(s.length() != t.length()){
+        if (s.length() != t.length()) {
             return false;
         }
         char[] cs = s.toCharArray();
         char[] ts = t.toCharArray();
         int[] is = new int[26];
-        for(int i=0;i<cs.length;i++){
+        for (int i = 0; i < cs.length; i++) {
             is[cs[i] - 'a']++;
         }
-        for(int i = 0;i<ts.length;i++){
-            if(--is[ts[i]-'a'] < 0){
+        for (int i = 0; i < ts.length; i++) {
+            if (--is[ts[i] - 'a'] < 0) {
                 return false;
             }
         }
