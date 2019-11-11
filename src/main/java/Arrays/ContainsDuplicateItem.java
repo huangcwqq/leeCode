@@ -84,8 +84,8 @@ public class ContainsDuplicateItem {
             return false;
         }
         Arrays.sort(nums);
-        for (int i = 0; i < nums.length-1; i++) {
-            if (nums[i] == nums[i+1])
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == nums[i + 1])
                 return true;
         }
         return false;
@@ -93,15 +93,15 @@ public class ContainsDuplicateItem {
 
     //大佬的高阶方法，但只适合长度小于1024的数组
     public static boolean containsDuplicate5(int[] nums) {
-        if(nums.length<1||nums[0]==237384||nums[0]==-24500){
+        if (nums.length < 1 || nums[0] == 237384 || nums[0] == -24500) {
             return false;
         }
         boolean[] boos = new boolean[1024];
-        for(int i = 0; i < nums.length; i++){
-            if(boos[nums[i]&1023]){
+        for (int i = 0; i < nums.length; i++) {
+            if (boos[nums[i] & 1023]) {
                 return true;
-            }else{
-                boos[nums[i]&1023] = true;
+            } else {
+                boos[nums[i] & 1023] = true;
             }
         }
         return false;

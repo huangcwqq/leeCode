@@ -21,9 +21,9 @@ package Arrays;
 
 public class PlusOne {
     public static void main(String[] args) {
-        int[] digits = {9,9};
+        int[] digits = {9, 9};
         int[] nums = plusOne(digits);
-        for(int i = 0;i < nums.length;i ++){
+        for (int i = 0; i < nums.length; i++) {
             System.out.print(nums[i]);
             System.out.print(",");
         }
@@ -32,15 +32,15 @@ public class PlusOne {
     public static int[] plusOne(int[] digits) {
         int i = digits.length - 1;
         digits[i] = digits[i] + 1;
-        for(;i >= 0;i--){
-            if(digits[0] > 9){
+        for (; i >= 0; i--) {
+            if (digits[0] > 9) {
                 digits[0] = 0;
                 int[] nums = new int[digits.length + 1];
                 nums[0] = 1;
                 return nums;
-            }else if(digits[i] > 9){
+            } else if (digits[i] > 9) {
                 digits[i] = 0;
-                digits[i-1] = digits[i-1] + 1;
+                digits[i - 1] = digits[i - 1] + 1;
             }
         }
         return digits;

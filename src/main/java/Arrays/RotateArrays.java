@@ -25,10 +25,10 @@ package Arrays;
 
 public class RotateArrays {
     public static void main(String[] args) {
-        int[] nums = {-1,-100,3,99};
-        int[] nums2 = {1,2,3,4};
-        rotate3(nums2,2);
-        for(int i = 0;i < nums.length;i ++){
+        int[] nums = {-1, -100, 3, 99};
+        int[] nums2 = {1, 2, 3, 4};
+        rotate3(nums2, 2);
+        for (int i = 0; i < nums.length; i++) {
             System.out.print(nums[i]);
             System.out.print(",");
         }
@@ -37,15 +37,15 @@ public class RotateArrays {
     //新增一个临时数组（不符合题目要求）
     public static void rotate(int[] nums, int k) {
         int len = nums.length;
-        if(len < 2 || k == 0){
+        if (len < 2 || k == 0) {
             return;
         }
         int[] temp = new int[len];
-        for(int i = 0;i < len;i++){
-            int j = (k + i)%len;
+        for (int i = 0; i < len; i++) {
+            int j = (k + i) % len;
             temp[j] = nums[i];
         }
-        for(int i = 0;i<len;i++){
+        for (int i = 0; i < len; i++) {
             nums[i] = temp[i];
         }
     }
@@ -53,14 +53,14 @@ public class RotateArrays {
     //暴力破解法
     public static void rotate2(int[] nums, int k) {
         int len = nums.length;
-        if(len < 2 || k == 0){
+        if (len < 2 || k == 0) {
             return;
         }
-        k%=len;
-        while(k > 0){
+        k %= len;
+        while (k > 0) {
             int last = nums[len - 1];
-            for(int i = len - 1;i >0;i--){
-                nums[i] = nums[i-1];
+            for (int i = len - 1; i > 0; i--) {
+                nums[i] = nums[i - 1];
             }
             nums[0] = last;
             k--;
@@ -70,7 +70,7 @@ public class RotateArrays {
     //大佬方法
     public static void rotate3(int[] nums, int k) {
         int len = nums.length;
-        k%=len;
+        k %= len;
         help(nums, 0, len - k - 1);
         help(nums, len - k, len - 1);
         help(nums, 0, len - 1);

@@ -44,11 +44,11 @@ package Arrays;
 
 public class RotateImage {
     public static void main(String[] args) {
-        int[][] matrix  =
+        int[][] matrix =
                 {
-                        {1,2,3},
-                        {4,5,6},
-                        {7,8,9},
+                        {1, 2, 3},
+                        {4, 5, 6},
+                        {7, 8, 9},
                 };
 //        int[][] matrix2  =
 //                {
@@ -57,15 +57,15 @@ public class RotateImage {
 //                        {9,10,11,12},
 //                        {13,14,15,16},
 //                };
-        int[][] matrix2  =
+        int[][] matrix2 =
                 {
-                        {1,2},
-                        {3,4},
+                        {1, 2},
+                        {3, 4},
                 };
 
         rotate2(matrix2);
-        for(int i = 0;i < matrix2.length;i++){
-            for(int j = 0;j < matrix2[i].length;j++){
+        for (int i = 0; i < matrix2.length; i++) {
+            for (int j = 0; j < matrix2[i].length; j++) {
                 System.out.print(matrix2[i][j]);
                 System.out.print(",");
             }
@@ -75,19 +75,19 @@ public class RotateImage {
 
     //使用了另外一个矩阵辅助，不合题意
     public static void rotate(int[][] matrix) {
-        if(matrix.length < 2){
+        if (matrix.length < 2) {
             return;
         }
         int[][] result = new int[matrix.length][matrix.length];
         int columnLength = matrix.length - 1;
-        for(int i = 0;i < matrix.length;i++){
-            for(int j = 0;j < matrix[i].length;j++){
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
                 result[j][columnLength] = matrix[i][j];
             }
             columnLength--;
         }
-        for(int i = 0;i < result.length;i++){
-            for(int j = 0;j < result[i].length;j++){
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[i].length; j++) {
                 matrix[i][j] = result[i][j];
             }
         }
@@ -97,11 +97,11 @@ public class RotateImage {
     public static void rotate2(int[][] matrix) {
         int len = matrix.length - 1;
         int length = len;
-        if(len < 1){
+        if (len < 1) {
             return;
         }
-        for(int i = 0;i < length ;i++){
-            for(int j = i;j < length;j++){
+        for (int i = 0; i < length; i++) {
+            for (int j = i; j < length; j++) {
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[len - j][i];
                 matrix[len - j][i] = matrix[len - i][len - j];

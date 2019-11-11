@@ -57,48 +57,48 @@ import java.util.Set;
 public class ValidSudoku {
     public static void main(String[] args) {
         char[][] board1 =
-        {
-            {'5','3','.','.','7','.','.','.','.'},
-            {'6','.','.','1','9','5','.','.','.'},
-            {'.','9','8','.','.','.','.','6','.'},
-            {'8','.','.','.','6','.','.','.','3'},
-            {'4','.','.','8','.','3','.','.','1'},
-            {'7','.','.','.','2','.','.','.','6'},
-            {'.','6','.','.','.','.','2','8','.'},
-            {'.','.','.','4','1','9','.','.','5'},
-            {'.','.','.','.','8','.','.','7','9'}
-        };
+                {
+                        {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                        {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                        {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                        {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                        {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                        {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                        {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                        {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                        {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+                };
 
         char[][] board2 =
-        {
-            {'8','3','.','.','7','.','.','.','.'},
-            {'6','.','.','1','9','5','.','.','.'},
-            {'.','9','8','.','.','.','.','6','.'},
-            {'8','.','.','.','6','.','.','.','3'},
-            {'4','.','.','8','.','3','.','.','1'},
-            {'7','.','.','.','2','.','.','.','6'},
-            {'.','6','.','.','.','.','2','8','.'},
-            {'.','.','.','4','1','9','.','.','5'},
-            {'.','.','.','.','8','.','.','7','9'}
-         };
+                {
+                        {'8', '3', '.', '.', '7', '.', '.', '.', '.'},
+                        {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                        {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                        {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                        {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                        {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                        {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                        {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                        {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+                };
 
         System.out.println(isValidSudoku(board1));
         System.out.println(isValidSudoku(board2));
     }
 
     public static boolean isValidSudoku(char[][] board) {
-        Map<Integer,Set> rowMap = new HashMap<Integer, Set>();
-        Map<Integer,Set> columnMap = new HashMap<Integer, Set>();
-        Map<Integer,Set> squareMap = new HashMap<Integer, Set>();
-        for(int i = 0;i < 9;i++){
+        Map<Integer, Set> rowMap = new HashMap<Integer, Set>();
+        Map<Integer, Set> columnMap = new HashMap<Integer, Set>();
+        Map<Integer, Set> squareMap = new HashMap<Integer, Set>();
+        for (int i = 0; i < 9; i++) {
             Set set1 = new HashSet();
-            rowMap.put(i,set1);
+            rowMap.put(i, set1);
             Set set2 = new HashSet();
-            columnMap.put(i,set2);
+            columnMap.put(i, set2);
             Set set3 = new HashSet();
-            squareMap.put(i,set3);
+            squareMap.put(i, set3);
         }
-        for(int i = 0;i < 9;i++) {
+        for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 char item = board[i][j];
                 if (item != '.') {
@@ -112,7 +112,7 @@ public class ValidSudoku {
                     } else {
                         columnMap.get(j).add(item);
                     }
-                    int key = j/3+i/3*3;
+                    int key = j / 3 + i / 3 * 3;
                     if (squareMap.get(key).contains(item)) {
                         return false;
                     } else {
@@ -134,7 +134,7 @@ public class ValidSudoku {
             for (int j = 0; j < 9; j++) {
                 data = (int) (board[i][j] - '0');
                 if (data < 0) continue;
-                if (rows[i][data-1]++ + columns[j][data-1]++ + square[i/3][j/3][data-1]++ > 0)
+                if (rows[i][data - 1]++ + columns[j][data - 1]++ + square[i / 3][j / 3][data - 1]++ > 0)
                     return false;
             }
         }

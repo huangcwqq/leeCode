@@ -19,19 +19,19 @@ import java.util.Map;
 public class TwoSum {
     public static void main(String[] args) {
         int[] nums = {2, 7, 11, 15};
-        int[] two = twoSum1(nums,9);
+        int[] two = twoSum1(nums, 9);
         System.out.println(two[0] + "," + two[1]);
     }
 
     //暴力方法
     public static int[] twoSum(int[] nums, int target) {
-        if(nums.length < 2){
+        if (nums.length < 2) {
             return null;
         }
-        int two[] =new int[2];
-        for(int i = 0;i < nums.length;i++){
-            for (int j= i+1;j < nums.length;j++){
-                if(target == nums[i] + nums[j]){
+        int two[] = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (target == nums[i] + nums[j]) {
                     two[0] = i;
                     two[1] = j;
                     return two;
@@ -43,19 +43,19 @@ public class TwoSum {
 
     //引入Map来进行优化
     public static int[] twoSum1(int[] nums, int target) {
-        if(nums.length < 2){
+        if (nums.length < 2) {
             return null;
         }
-        int two[] =new int[2];
+        int two[] = new int[2];
         Map<Integer, Integer> sumMap = new HashMap();
-        for(int i = 0;i < nums.length;i++){
-         if(sumMap.containsKey(nums[i])){
-             two[1] = i;
-             two[0] = sumMap.get(nums[i]);
-             return two;
-         }else {
-             sumMap.put(target - nums[i],i);
-         }
+        for (int i = 0; i < nums.length; i++) {
+            if (sumMap.containsKey(nums[i])) {
+                two[1] = i;
+                two[0] = sumMap.get(nums[i]);
+                return two;
+            } else {
+                sumMap.put(target - nums[i], i);
+            }
         }
         return null;
     }

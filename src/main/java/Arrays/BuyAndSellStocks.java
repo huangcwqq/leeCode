@@ -27,9 +27,9 @@ package Arrays;
 public class BuyAndSellStocks {
 
     public static void main(String[] args) {
-        int[] prices1 = {7,1,5,3,6,4};
-        int[] prices2 = {1,2,3,4,5};
-        int[] prices3 = {7,6,4,3,1};
+        int[] prices1 = {7, 1, 5, 3, 6, 4};
+        int[] prices2 = {1, 2, 3, 4, 5};
+        int[] prices3 = {7, 6, 4, 3, 1};
         System.out.println(maxProfit(prices1));
         System.out.println(maxProfit(prices2));
         System.out.println(maxProfit(prices3));
@@ -41,16 +41,16 @@ public class BuyAndSellStocks {
 
     //可以允许多次交易
     public static int maxProfit(int[] prices) {
-        if(prices.length <= 1){
+        if (prices.length <= 1) {
             return 0;
         }
         //最低价格
         int low = prices[0];
         //利润值
         int maxProfit = 0;
-        for(int i = 1;i < prices.length;i++){
-            if(prices[i] > low){
-                maxProfit += (prices[i]-low);
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > low) {
+                maxProfit += (prices[i] - low);
             }
             low = prices[i];
         }
@@ -59,7 +59,7 @@ public class BuyAndSellStocks {
 
     //只允许一次交易
     public static int maxProfit2(int[] prices) {
-        if(prices.length <= 1){
+        if (prices.length <= 1) {
             return 0;
         }
         //最低价格
@@ -67,14 +67,14 @@ public class BuyAndSellStocks {
         //利润值
         int maxProfit = 0;
 
-        for(int i = 1;i < prices.length;i++){
-          if(prices[i] > low){
-              if(maxProfit < prices[i] - low){
-                  maxProfit = prices[i] - low;
-              }
-          }else {
-              low = prices[i];
-          }
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > low) {
+                if (maxProfit < prices[i] - low) {
+                    maxProfit = prices[i] - low;
+                }
+            } else {
+                low = prices[i];
+            }
         }
         return maxProfit;
     }
