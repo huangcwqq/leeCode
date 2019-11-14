@@ -26,22 +26,17 @@
 
 package LinkedList;
 
+import LinkedList.entity.ListNode;
+
 public class DeleteNode {
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-        }
-    }
     public static void main(String[] args) {
-        ListNode nodeList = new ListNode(4);
-        nodeList.next = new ListNode(5) ;
-        nodeList.next.next = new ListNode(1);
-        nodeList.next.next.next = new ListNode(9);
-        ListNode node = nodeList.next;
+        ListNode head = new ListNode(4);
+        head.next = new ListNode(5);
+        head.next.next = new ListNode(1);
+        head.next.next.next = new ListNode(9);
+        ListNode node = head.next;
         deleteNode(node);
-        System.out.println(nodeList);
+        System.out.println(head);
     }
 
     public static void deleteNode(ListNode node) {
