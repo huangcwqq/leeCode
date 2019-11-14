@@ -28,23 +28,24 @@ public class RemoveNthFromEnd {
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
-        ListNode newHead = removeNthFromEnd(head,1);
+        ListNode newHead = removeNthFromEnd(head, 1);
         System.out.println(newHead);
     }
 
+    //引入map来存储每个节点的位置
     public static ListNode removeNthFromEnd(ListNode head, int n) {
-        if(head.next == null){
+        if (head.next == null) {
             return null;
         }
-        Map<Integer,ListNode> nodeMap = new HashMap<Integer, ListNode>();
+        Map<Integer, ListNode> nodeMap = new HashMap<Integer, ListNode>();
         int count = 1;
         ListNode temp = head;
-        while(temp != null){
-            nodeMap.put(count,temp);
+        while (temp != null) {
+            nodeMap.put(count, temp);
             temp = temp.next;
             count++;
         }
-        if(n == 1){
+        if (n == 1) {
             nodeMap.get(count - n - 1).next = null;
             return head;
         }
@@ -54,19 +55,20 @@ public class RemoveNthFromEnd {
         return head;
     }
 
+    //先记录下第n个节点的位置，然后链1从第n个节点出发，另外链2从头节点出发，当链1到达末节点，链2就会刚好到达倒数第n个节点
     public static ListNode removeNthFromEnd2(ListNode head, int n) {
-        ListNode l1=head;
+        ListNode l1 = head;
         ListNode l2 = head;
-        while(n>0){
-            l1=l1.next;
+        while (n > 0) {
+            l1 = l1.next;
             n--;
         }
-        if(l1==null) return head.next;
-        while(l1.next!=null){
-            l1=l1.next;
-            l2=l2.next;
+        if (l1 == null) return head.next;
+        while (l1.next != null) {
+            l1 = l1.next;
+            l2 = l2.next;
         }
-        l2.next=l2.next.next;
+        l2.next = l2.next.next;
         return head;
     }
 }
