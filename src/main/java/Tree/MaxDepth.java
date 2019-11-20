@@ -38,11 +38,22 @@ public class MaxDepth {
         }
         TreeNode left = root.left;
         TreeNode right = root.right;
-        while (left != null || right != null) {
-            int l = maxDepth(left);
-            int r = maxDepth(right);
-            return (l > r ? l : r) + 1;
+        int l = maxDepth(left);
+        int r = maxDepth(right);
+        return (l > r ? l : r) + 1;
+    }
+
+    //优化递归运算
+    public static int maxDepth2(TreeNode root) {
+        if (root == null) {
+            return 0;
         }
-        return 1;
+        return biggerOne(maxDepth2(root.left), maxDepth2(root.right)) + 1;
+    }
+
+    public static int biggerOne(int val1, int val2) {
+        if (val1 > val2)
+            return val1;
+        return val2;
     }
 }
